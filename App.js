@@ -29,11 +29,24 @@ export default function App() {
             source={require('./assets/alok.jpg')}
             style={styles.cardImage}
           />
-          <View style={styles.bottomCard}>
-            <Text style={styles.singer}>Alok</Text>
-            <TouchableOpacity>
-              <Text style={styles.follow}>Seguir</Text>
-            </TouchableOpacity>
+          <View style={styles.bodyCard}>
+            <View style={styles.topCard}>
+              <Text style={styles.singer}>Alok</Text>
+              <TouchableOpacity>
+                <Text style={styles.follow}>Seguir</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.bottomCard}>
+              <Text style={styles.monthlyListeners}>
+                27,9 mi ouvites mensais
+              </Text>
+              <Text style={styles.detailsArtist}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Provident consequatur fugiat, impedit tempore iste id debitis
+                voluptatem animi eos sunt beatae quos? Vitae quos accusamus amet
+                iusto asperiores quod vel?
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -68,11 +81,15 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: 'contain',
   },
-  bottomCard: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  bodyCard: {
     padding: 20,
+    backgroundColor: colors.bgcard,
+  },
+  topCard: {
+    width: '100%',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   singer: {
     fontSize: 20,
@@ -88,5 +105,12 @@ const styles = StyleSheet.create({
     color: colors.title,
     fontSize: 15,
     fontWeight: 'bold',
+  },
+  monthlyListeners: {
+    color: colors.title,
+    marginBottom: 10,
+  },
+  detailsArtist: {
+    color: colors.title,
   },
 });
