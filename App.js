@@ -10,6 +10,7 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from './styles/colors';
 import { musicas } from './utils/musicas';
+import CardMusica from './components/card-musica';
 
 export default function App() {
   return (
@@ -25,31 +26,14 @@ export default function App() {
         <Text style={styles.titleHeader}>Músicas</Text>
       </View>
       <ScrollView>
-        <View style={styles.card}>
-          <Image
-            source={require('./assets/artistas/alok.jpg')}
-            style={styles.cardImage}
+        {musicas.map((musica, index) => (
+          <CardMusica
+            imgAlbum={musica.imgAlbum}
+            artista={musica.artista}
+            duracao={musica.duracao}
+            key={index}
           />
-          <View style={styles.bodyCard}>
-            <View style={styles.topCard}>
-              <Text style={styles.singer}>Alok</Text>
-              <TouchableOpacity>
-                <Text style={styles.follow}>Seguir</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.bottomCard}>
-              <Text style={styles.monthlyListeners}>
-                27,9 mi ouvites mensais
-              </Text>
-              <Text style={styles.detailsArtist}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident consequatur fugiat, impedit tempore iste id debitis
-                voluptatem animi eos sunt beatae quos? Vitae quos accusamus amet
-                iusto asperiores quod vel?
-              </Text>
-            </View>
-          </View>
-        </View>
+        ))}
       </ScrollView>
     </View>
   );

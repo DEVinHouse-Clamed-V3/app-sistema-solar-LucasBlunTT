@@ -1,22 +1,21 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { colors } from './styles/colors';
+import { colors } from '../styles/colors';
 
-export default function CardMusica({ nome, artista, album, duracao, genero }) {
+export default function CardMusica({ imgAlbum, artista, duracao }) {
   return (
     <View style={styles.card}>
-      <Image
-        source={require('./assets/artistas/alok.jpg')}
-        style={styles.cardImage}
-      />
+      <Image source={imgAlbum} style={styles.cardImage} />
       <View style={styles.bodyCard}>
         <View style={styles.topCard}>
-          <Text style={styles.singer}>Alok</Text>
+          <Text style={styles.singer}>{artista}</Text>
           <TouchableOpacity>
             <Text style={styles.follow}>Seguir</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.bottomCard}>
-          <Text style={styles.monthlyListeners}>27,9 mi ouvites mensais</Text>
+          <Text style={styles.monthlyListeners}>
+            {duracao} ouvintes mensais
+          </Text>
           <Text style={styles.detailsArtist}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
             consequatur fugiat, impedit tempore iste id debitis voluptatem animi
