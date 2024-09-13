@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from './styles/colors';
+import { musicas } from './utils/musicas';
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
       <ScrollView>
         <View style={styles.card}>
           <Image
-            source={require('./assets/alok.jpg')}
+            source={require('./assets/artistas/alok.jpg')}
             style={styles.cardImage}
           />
           <View style={styles.bodyCard}>

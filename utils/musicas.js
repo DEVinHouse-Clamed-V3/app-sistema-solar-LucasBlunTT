@@ -1,5 +1,13 @@
 export const musicas = [
   {
+    img: '../assets/artistas/alok.jpg', // link da imagem do álbum
+    nome: 'Love Again (feat. Alida)',
+    artista: 'Alok, Alida',
+    album: 'Outras versões',
+    duracao: '3:00', // duração da música em minutos e segundos (ajustável conforme a duração real)
+    genero: 'Dance/Electronic',
+  },
+  {
     img: 'https://i.scdn.co/image/ab67616d0000b273e8b5a0a2e4d5e2b9ef6320f3', // link da imagem do álbum
     nome: 'Blinding Lights',
     artista: 'The Weeknd',
