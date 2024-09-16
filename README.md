@@ -1,6 +1,7 @@
 # Music App | Aplicativo de Músicas em React Native
 
 ## 📷 Screenshot
+![image](https://github.com/user-attachments/assets/5136566a-21ca-468b-ad95-460cf22e537c)
 
 
 ## 📋 Descrição do projeto
