@@ -36,19 +36,14 @@ export default function App() {
           source={{
             uri: 'https://avatars.githubusercontent.com/u/83377646?v=4',
           }}
-          style={{ width: 40, height: 40, borderRadius: 100, marginRight: 87 }}
+          style={{ width: 40, height: 40, borderRadius: 100, marginRight: 77 }}
         />
-        <Text style={styles.titleHeader}>Músicas</Text>
-        <Text
-          style={{
-            position: 'absolute',
-            right: 180,
-            bottom: 6,
-            color: 'white',
-          }}
-        >
-          {musicaAtual + 1} de {qtdMusicas}
-        </Text>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.titleHeader}>Músicas</Text>
+          <Text style={styles.musicaAtual}>
+            {musicaAtual + 1} de {qtdMusicas}
+          </Text>
+        </View>
       </View>
 
       {/* Mostrando apenas a música atual */}
@@ -98,15 +93,24 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bakcground,
   },
   header: {
-    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     padding: 20,
+  },
+  headerTextContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleHeader: {
     fontSize: 20,
     fontWeight: 'bold',
     color: colors.title,
+  },
+  musicaAtual: {
+    fontSize: 16,
+    color: 'white',
+    marginTop: 4,
   },
   controls: {
     flexDirection: 'row',
