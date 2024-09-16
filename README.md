@@ -1,2 +1,29 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/C8zpymPV)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15928294&assignment_repo_type=AssignmentRepo)
+# Music App | Aplicativo de Músicas em React Native
+
+## 📷 Screenshot
+
+
+## 📋 Descrição do projeto
+Este projeto é um aplicativo de música desenvolvido em **React Native**, onde o usuário pode navegar entre diferentes músicas, visualizar informações sobre o álbum e o artista, e seguir seus artistas favoritos. O projeto inclui animações de **fade in** para melhorar a experiência do usuário.
+
+## 🚀 Funcionalidades
+- Exibição de informações da música atual (nome do artista, ouvintes mensais, imagem do álbum).
+- Navegação entre as músicas com os botões **anterior** e **próxima**.
+- Animação de **fade in** nos cards de música.
+- Botão para seguir o artista.
+
+## 💻 Tecnologias utilizadas
+- React Native
+- Expo
+- Animated API
+- MaterialCommunityIcons
+
+## 🛠️ Como Usar
+- Clone este repositório em sua máquina local.
+- Certifique-se de ter o **Node.js** e o **Expo CLI** instalados.
+- Instale as dependências com `npm install`.
+- Execute o projeto com `expo start`.
+- Use o aplicativo **Expo Go** em seu dispositivo ou um emulador para rodar o app.
+
+## 📈 Status do projeto
+✅ Concluído
