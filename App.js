@@ -63,7 +63,7 @@ export default function App() {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={musicaAnterior} disabled={musicaAtual === 0}>
+        <TouchableOpacity onPress={musicaAnterior}>
           <MaterialCommunityIcons
             name="play-box"
             size={40}
