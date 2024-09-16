@@ -1,10 +1,11 @@
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   Image,
   StatusBar,
-  ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from './styles/colors';
@@ -12,6 +13,21 @@ import { musicas } from './utils/musicas';
 import CardMusica from './components/card-musica';
 
 export default function App() {
+  const [musicaAtual, setMusicaAtual] = useState(0);
+  const qtdMusicas = musicas.length;
+
+  const proximaMusica = () => {
+    if (musicaAtual < qtdMusicas - 1) {
+      setMusicaAtual(musicaAtual + 1);
+    }
+  };
+
+  const musicaAnterior = () => {
+    if (musicaAtual > 0) {
+      setMusicaAtual(musicaAtual - 1);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" backgroundColor={colors.bakcground} />
@@ -20,20 +36,57 @@ export default function App() {
           source={{
             uri: 'https://avatars.githubusercontent.com/u/83377646?v=4',
           }}
-          style={{ width: 40, height: 40, borderRadius: 100, marginRight: 90 }}
+          style={{ width: 40, height: 40, borderRadius: 100, marginRight: 87 }}
         />
         <Text style={styles.titleHeader}>Músicas</Text>
+        <Text
+          style={{
+            position: 'absolute',
+            right: 180,
+            bottom: 6,
+            color: 'white',
+          }}
+        >
+          {musicaAtual + 1} de {qtdMusicas}
+        </Text>
       </View>
-      <ScrollView>
-        {musicas.map((musica, index) => (
-          <CardMusica
-            imgAlbum={musica.imgAlbum}
-            artista={musica.artista}
-            duracao={musica.duracao}
-            key={index}
+
+      {/* Mostrando apenas a música atual */}
+      <CardMusica
+        imgAlbum={musicas[musicaAtual].imgAlbum}
+        artista={musicas[musicaAtual].artista}
+        duracao={musicas[musicaAtual].duracao}
+        key={musicaAtual}
+      />
+
+      <View style={styles.controls}>
+        <TouchableOpacity onPress={musicaAnterior} disabled={musicaAtual === 0}>
+          <MaterialCommunityIcons
+            name="skip-previous"
+            size={40}
+            color={musicaAtual === 0 ? '#555' : colors.title}
           />
-        ))}
-      </ScrollView>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={musicaAnterior} disabled={musicaAtual === 0}>
+          <MaterialCommunityIcons
+            name="play-box"
+            size={40}
+            color={colors.title}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={proximaMusica}
+          disabled={musicaAtual === qtdMusicas - 1}
+        >
+          <MaterialCommunityIcons
+            name="skip-next"
+            size={40}
+            color={musicaAtual === qtdMusicas - 1 ? '#555' : colors.title}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -45,6 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bakcground,
   },
   header: {
+    position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 20,
@@ -52,49 +106,12 @@ const styles = StyleSheet.create({
   titleHeader: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginLeft: 10,
     color: colors.title,
   },
-  card: {
-    width: '100%',
-    marginBottom: 20,
-    paddingHorizontal: 40,
-  },
-  cardImage: {
-    width: '100%',
-    height: 300,
-    resizeMode: 'contain',
-  },
-  bodyCard: {
-    padding: 20,
-    backgroundColor: colors.bgcard,
-  },
-  topCard: {
-    width: '100%',
-    justifyContent: 'space-between',
+  controls: {
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  singer: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.title,
-  },
-  follow: {
-    borderColor: '#CCC',
-    borderWidth: 1,
-    borderRadius: 50,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    color: colors.title,
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-  monthlyListeners: {
-    color: colors.title,
-    marginBottom: 10,
-  },
-  detailsArtist: {
-    color: colors.title,
+    justifyContent: 'space-between',
+    paddingHorizontal: 50,
+    marginTop: 20,
   },
 });
