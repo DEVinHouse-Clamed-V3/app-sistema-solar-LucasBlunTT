@@ -1,9 +1,29 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Animated,
+} from 'react-native';
 import { colors } from '../styles/colors';
 
 export default function CardMusica({ imgAlbum, artista, duracao }) {
+  // Inicializa o valor de opacidade para a animação
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    // Configura e inicia a animação de fade in
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
+
   return (
-    <View style={styles.card}>
+    <Animated.View style={[styles.card, { opacity: fadeAnim }]}>
       <Image source={imgAlbum} style={styles.cardImage} />
       <View style={styles.bodyCard}>
         <View style={styles.topCard}>
@@ -24,7 +44,7 @@ export default function CardMusica({ imgAlbum, artista, duracao }) {
           </Text>
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
